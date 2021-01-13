@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>GP Calculator</title>
+  </head>
+  <body>
+    <!-- header -->
+    <header class="header">
+      <h1 class="header__text">GPA Calculator</h1>
+    </header>
+
+    <!-- calculator -->
+    <section class="calculator">
+      <div class="container">
+        <!-- GPA Calculator Section -->
+        <div class="gpa">
+          <h2 class="gpa__heading">Calculate GPA</h2>
+
+          <div class="gpa__form" id="gpaForm">
+            <li class="gpa__form-list" id="gpaFormList">
+              <!-- course title -->
+              <label class="gpa__form-listLabel" for="">Course Title</label>
+              <input class="gpa__form-listInput" type="text" />
+
+              <!-- course code -->
+              <label class="gpa__form-listLabel" for="">Course Code</label>
+              <input class="gpa__form-listInput" type="text" />
+
+              <!-- exam grade -->
+              <label class="gpa__form-listLabel" for="">Exam Grade</label>
+              <select name="" id="gradeSelect" class="gpa__form-listSelect">
+                <option value="" data-grade="4.00">A1</option>
+                <option value="" data-grade="3.50">A2</option>
+                <option value="" data-grade="3.25">B1</option>
+                <option value="" data-grade="3.00">B2</option>
+                <option value="" data-grade="2.75">C1</option>
+                <option value="" data-grade="2.50">C2</option>
+                <option value="" data-grade="2.25">D1</option>
+                <option value="" data-grade="2.00">D2</option>
+                <option value="" data-grade="0.00">F</option>
+              </select>
+
+              <!-- course unit -->
+              <label class="gpa__form-listLabel" for="">Course Unit</label>
+              <select name="" id="" class="gpa__form-listSelect">
+                <option data-unit="1">1</option>
+                <option data-unit="2">2</option>
+                <option data-unit="3">3</option>
+                <option data-unit="4">4</option>
+                <option data-unit="5">5</option>
+                <option data-unit="6">6</option>
+              </select>
+            </li>
+          </div>
+          <!-- gpa buttons -->
+          <div class="gpa__btns">
+            <button class="gpa__btns--add" id="add">add</button>
+            <button class="gpa__btns--del" id="del">del</button>
+            <button class="gpa__btns--calc" id="gpa">Calculate GPA</button>
+          </div>
+        </div>
+
+        <!-- CGPA Calculator Section -->
+        <div class="cgpa">
+          <h2 class="cgpa__heading">Calculate CGPA</h2>
+
+          <div class="cgpa__form" id="cgpaForm">
+            <!--****** NOTE: put label and input into spans for better rendering after church -->
+            <label class="cgpa__form-label" for="">Enter Previous GPA</label>
+            <input class="cgpa__form-input" type="text" id="prevGPA" />
+            <label class="cgpa__form-label" for="">Enter Current GPA</label>
+            <input class="cgpa__form-input" type="text" id="currentGPA" />
+            <button class="cgpa__form-btn" id="cgpa">Calculate CGPA</button>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- footer -->
+    <footer>
+
+    </footer>
+
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

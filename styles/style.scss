@@ -1,0 +1,197 @@
+:root {
+  // ****************** fonts **************************//
+  font-size: 62.5%;
+  font-family: sans-serif;
+  // ******************* colors ************************//
+  // arranged alphabetically
+  --color-black: rgb(3, 3, 3);
+  --color-blue: rgb(14, 48, 160);
+  --color-darkgrey: rgb(54, 53, 53);
+  --color-green: rgb(7, 71, 7);
+  --color-grey: rgb(167, 162, 162);
+  --color-lightgrey: rgb(207, 203, 203);
+  --color-red: rgb(187, 16, 16);
+  --color-white: #fff;
+}
+//*********************** mixins ************************//
+// arranged alphabetically
+@mixin btn {
+  height: 3rem;
+  width: 15rem;
+  background-color: var(--color-green);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  outline: none;
+}
+@mixin btnSmall {
+  height: 3rem;
+  width: 5rem;
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  outline: none;
+}
+@mixin componentWrap {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-grey);
+  margin: 5rem 0;
+  min-height: 20rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+@mixin inputStyle {
+  height: 3rem;
+  width: 15rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+}
+@mixin labelStyle {
+  color: var(--color-green);
+  font-size: 1.2rem;
+  display: block;
+  text-align: center;
+}
+@mixin flexBoxColumnCentered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+@mixin formColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 3rem;
+}
+@mixin formRow {
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-around;
+  min-height: 3rem;
+}
+@mixin selection {
+  width: 15rem;
+  height: 3rem;
+  outline: none;
+  border-radius: 0.5rem;
+}
+@mixin subHeading {
+  text-align: center;
+  padding: 15px;
+  color: var(--color-green);
+  font-size: 2rem;
+}
+//********************** general styles *************************//
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+//******************** main styling *********************//
+body {
+  background-color: var(--color-white);
+  .header {
+    position: fixed;
+    display: grid;
+    place-items: center;
+    background-color: var(--color-green);
+    height: 5rem;
+    width: 100%;
+    color: var(--color-white);
+    &__text {
+      font-weight: lighter;
+      font-size: 2.4rem;
+    }
+
+    @media only screen and (max-width: 414px) {
+      height: 5rem;
+      width: 414px;
+      }
+      &__text {
+        font-weight: lighter;
+        font-size: 2.0rem;
+      }
+  
+  }
+  .container {
+    background-color: var(--color-white);
+    max-width: 100rem;
+    margin: 0 auto;
+    color: var(--color-black);
+    padding: 3rem;
+    .gpa {
+      @include componentWrap;
+      &__heading {
+        @include subHeading;
+      }
+
+      &__form {
+        @include formColumn;
+        &-list {
+          display: flex;
+          flex-direction: row;
+          list-style-type: none;
+          margin: 2rem;
+          &Label {
+            // mixin containing styles for the input label
+            @include labelStyle;
+          }
+          &Input {
+            // mixin containing styles for the input boxes
+            @include inputStyle;
+          }
+          &Select {
+            // mixin containing styles for the select dropdown
+            @include selection;
+          }
+        }
+      }
+      &__btns {
+        margin: 5rem 0 0 0;
+        &--add {
+          @include btnSmall;
+          background-color: var(--color-blue);
+        }
+        &--del {
+          @include btnSmall;
+          background-color: var(--color-red);
+        }
+        &--calc {
+          @include btn;
+        }
+      }
+    }
+    .cgpa {
+      // mixin containing styles for GPA & CGPA cards
+      @include componentWrap;
+      &__heading {
+        // mixin containing styles for headings inside the GPA & CGPA cards
+        @include subHeading;
+      }
+
+      &__form {
+        // mixin containing styles for forms
+        @include formRow;
+        &-label {
+          // mixin containing styles for input label
+          @include labelStyle;
+          margin: 2rem;
+        }
+        &-input {
+          // mixin containing styles for input boxes
+          @include inputStyle;
+        }
+        &-btn {
+          // mixin containing styles for buttons
+          @include btn;
+        }
+      }
+    }
+  }
+}
